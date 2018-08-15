@@ -1,15 +1,28 @@
+import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
-import { CompanyRoutingModule } from './company-routing.module';
-import { CouponsComponent } from './coupons/coupons.component';
 import { CreateCouponComponent } from './create-coupon/create-coupon.component';
+import { CompanyCouponsComponent } from './company-coupons/company-coupons.component';
+
+const routes: Routes = [
+  {
+    path: 'company-coupons',
+    component: CompanyCouponsComponent
+  },
+  {
+    path: 'create-coupon',
+    component: CreateCouponComponent
+  }
+];
 
 @NgModule({
   imports: [
     CommonModule,
-    CompanyRoutingModule
+    RouterModule.forChild(routes),
+    FormsModule
   ],
-  declarations: [CouponsComponent, CreateCouponComponent]
+  declarations: [CreateCouponComponent, CompanyCouponsComponent]
 })
 export class CompanyModule { }
