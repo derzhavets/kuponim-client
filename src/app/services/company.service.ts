@@ -13,7 +13,7 @@ export class CompanyService {
   constructor(private http: HttpClient) { }
 
   getAllCoupons(companyId: string): Observable<any> {
-    return this.http.get(baseUrl + "/get-all-coupons", {
+    return this.http.get("/api/company/get-all-coupons", {
       params: {
         "company_id": companyId
       }

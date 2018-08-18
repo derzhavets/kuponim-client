@@ -13,16 +13,10 @@ export class TestComponent implements OnInit {
 
   ngOnInit() {
     this.loginService.login("appe@mau.we", "steve", "COMPANY").subscribe(data => {
-      
-      
-      console.log(data);
-
       this.companyService.getAllCoupons("1").subscribe(data => {
         console.log(data);
       })
     })
-
-
   }
 
 }

@@ -21,7 +21,7 @@ export class CustomerService {
       params: {
         "customer_id": customerId
       }
-    })
+    }) 
   }
 
   getPurchasedCoupons(customerId: string): Observable<any> {
