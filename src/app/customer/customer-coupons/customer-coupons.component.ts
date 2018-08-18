@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CustomerService } from '../../services/customer.service';
 
 @Component({
   selector: 'app-customer-coupons',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CustomerCouponsComponent implements OnInit {
 
-  constructor() { }
+  coupons: Array<any>
+
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
+    this.customerService.getPurchasedCoupons("1").subscribe(data => {
+      this.coupons = data
+    })
   }
 
 }

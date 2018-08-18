@@ -1,3 +1,4 @@
+import { TestComponent } from './test/test.component';
 import { AppComponent } from './app.component';
 
 export const AppRoutes = [{
@@ -12,4 +13,8 @@ export const AppRoutes = [{
     path: '',
     component: AppComponent,
     loadChildren: './customer/customer.module#CustomerModule'
+}, {
+    path: 'test',
+    component: TestComponent
+    
 }]

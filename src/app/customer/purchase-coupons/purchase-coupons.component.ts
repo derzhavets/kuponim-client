@@ -1,3 +1,4 @@
+import { CustomerService } from './../../services/customer.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,9 +8,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PurchaseCouponsComponent implements OnInit {
 
-  constructor() { }
+  coupons: Array<any>
+
+  constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
+    this.customerService.getAllCoupons().subscribe(data => {
+      this.coupons = data
+    })
+  }
+
+  purchaseCoupon(coupondId: string) {
+    this.customerService.purchaseCoupon("1", coupondId).subscribe(data => {
+      console.log("Successfully purchased coupon", data)
+    })
   }
 
 }
