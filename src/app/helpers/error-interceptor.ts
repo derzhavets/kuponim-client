@@ -25,6 +25,9 @@ export class ErrorInterceptor implements HttpInterceptor {
                         alert("Unauthorized access. Please login.")
                         this.router.navigate(["login"]);
                         break;
+                    case 400:
+                        alert(err.error.message);
+                        break;
                     case 500:
                         console.log("INTERNAL SERVER ERROR", err.error.message);
                         break;

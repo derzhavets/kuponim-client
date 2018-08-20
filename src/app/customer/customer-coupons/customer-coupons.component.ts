@@ -13,7 +13,7 @@ export class CustomerCouponsComponent implements OnInit {
   constructor(private customerService: CustomerService) { }
 
   ngOnInit() {
-    this.customerService.getPurchasedCoupons(localStorage.getItem("currentUserId")).subscribe(data => {
+    this.customerService.getPurchasedCoupons(sessionStorage.getItem("currentUserId")).subscribe(data => {
       this.coupons = data
     })
   }

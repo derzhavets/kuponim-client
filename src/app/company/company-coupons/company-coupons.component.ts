@@ -15,7 +15,7 @@ export class CompanyCouponsComponent implements OnInit {
   constructor(private companyService: CompanyService, private router: Router) { }
 
   ngOnInit() {
-    this.companyService.getAllCoupons(localStorage.getItem("currentUserId")).subscribe(data => {
+    this.companyService.getAllCoupons(sessionStorage.getItem("currentUserId")).subscribe(data => {
       this.coupons = data;
     })
   }
@@ -25,6 +25,10 @@ export class CompanyCouponsComponent implements OnInit {
       console.log("Successfully deleted coupon", data);
       window.location.reload()
     })
+  }
+
+  updateCoupon(id: string) {
+    this.router.navigate(["company/update-coupon/" + id])
   }
 
 }

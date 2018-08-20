@@ -22,11 +22,13 @@ import { LoginComponent } from './login/login.component';
     RouterModule.forRoot(AppRoutes),
     FormsModule
   ],
-  providers: [{
+  providers: [
+    {
     provide: HTTP_INTERCEPTORS,
     useClass: ErrorInterceptor,
     multi: true,
-  }],
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

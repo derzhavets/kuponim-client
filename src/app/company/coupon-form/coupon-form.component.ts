@@ -1,6 +1,7 @@
 import { CompanyService } from './../../services/company.service';
 import { Coupon } from './../../models/coupon';
 import { Component, OnInit, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-coupon-form',
@@ -13,7 +14,7 @@ export class CouponFormComponent implements OnInit {
   coupon: Coupon = new Coupon()
   types: Array<string>
 
-  constructor(private companyService: CompanyService) { }
+  constructor(private companyService: CompanyService, private router: Router) { }
 
   ngOnInit() {
     this.companyService.getCouponTypes().subscribe(data => {
@@ -24,13 +25,14 @@ export class CouponFormComponent implements OnInit {
   submit() {
     if (this.coupon.id) {
       this.companyService.updateCoupon(this.coupon).subscribe(data => {
-        console.log("Coupon successfully updated:", data);
+        alert("Coupons successfully updated")
       })
     } else {
-      this.companyService.createCoupon(this.coupon, localStorage.getItem("currentUserId")).subscribe(data => {
-        console.log("Coupon created successfully:", data);   
+      this.companyService.createCoupon(this.coupon, sessionStorage.getItem("currentUserId")).subscribe(data => {
+        alert("Coupons successfully updated")   
       })
     }
+    this.router.navigate(["company/company-coupons"])
   }
 
 }

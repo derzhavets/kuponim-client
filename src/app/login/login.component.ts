@@ -21,12 +21,12 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.login(this.model.email, this.model.password, this.model.type).subscribe(data => {
       console.log("Logged in", data);
-      localStorage.setItem("currentUserId", JSON.parse(data).id)
-      localStorage.setItem("currentUserType", JSON.parse(data).type)
+      sessionStorage.setItem("currentUserId", JSON.parse(data).id)
+      sessionStorage.setItem("currentUserType", JSON.parse(data).type)
 
       switch(JSON.parse(data).type) {
         case "COMPANY":
-          this.router.navigate(["company/coupons-list"])
+          this.router.navigate(["company/company-coupons"])
           break
         case "CUSTOMER":
           this.router.navigate(["customer/customer-coupons"])

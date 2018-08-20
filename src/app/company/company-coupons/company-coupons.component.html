@@ -5,7 +5,7 @@
       <div class="card-body">
         <h5 class="card-title">{{c.title}}</h5>
         <p class="card-text">{{c.message}}</p>
-        <button [routerLink]="'/update-coupon/' + c.id" class="btn btn-sm btn-primary">Edit</button>
+        <button (click)="updateCoupon(c.id)" class="btn btn-sm btn-primary">Edit</button>
         <button (click)="deleteCoupon(c.id)" class="btn btn-sm btn-danger">Delete</button>
       </div>
     </div>

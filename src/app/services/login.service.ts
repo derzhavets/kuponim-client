@@ -11,7 +11,7 @@ export class LoginService {
   constructor(private http: HttpClient) { }
 
   login(email: string, password: string, clientType: string): Observable<any> {
-    return this.http.get("/api/login/", {
+    return this.http.get("/api/login", {
       params: {
         "email": email,
         "password": password,
@@ -19,5 +19,9 @@ export class LoginService {
       },
       responseType: 'text'
     })
+  }
+
+  logout() {
+    return this.http.get("/api/logout", {responseType: 'text'})
   }
 }

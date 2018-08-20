@@ -19,8 +19,9 @@ export class PurchaseCouponsComponent implements OnInit {
   }
 
   purchaseCoupon(coupondId: string) {
-    this.customerService.purchaseCoupon(localStorage.getItem("currentUserId"), coupondId).subscribe(data => {
-      console.log("Successfully purchased coupon", data)
+    this.customerService.purchaseCoupon(sessionStorage.getItem("currentUserId"), coupondId).subscribe(data => {
+      alert("Successfully purchased coupon")
+      window.location.reload()
     })
   }
 
