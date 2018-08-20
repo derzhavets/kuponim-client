@@ -6,20 +6,17 @@ import { FormsModule } from '@angular/forms';
 import { CreateCouponComponent } from './create-coupon/create-coupon.component';
 import { CompanyCouponsComponent } from './company-coupons/company-coupons.component';
 import { CouponFormComponent } from './coupon-form/coupon-form.component';
-import { UpdateCouponComponent } from './update-coupon/update-coupon.component';
 
 const routes: Routes = [
   {
     path: 'company-coupons',
     component: CompanyCouponsComponent
-  },
-  {
+  }, {
     path: 'create-coupon',
     component: CreateCouponComponent
-  },
-  {
-    path: 'update-coupon/:id',
-    component: UpdateCouponComponent
+  }, {
+    path: 'coupon-form',
+    component: CouponFormComponent
   }
 ];
 
@@ -29,6 +26,6 @@ const routes: Routes = [
     RouterModule.forChild(routes),
     FormsModule
   ],
-  declarations: [CreateCouponComponent, CompanyCouponsComponent, CouponFormComponent, UpdateCouponComponent]
+  declarations: [CreateCouponComponent, CompanyCouponsComponent, CouponFormComponent]
 })
 export class CompanyModule { }

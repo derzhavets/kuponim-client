@@ -28,7 +28,10 @@ export class CompanyCouponsComponent implements OnInit {
   }
 
   updateCoupon(id: string) {
-    this.router.navigate(["company/update-coupon/" + id])
+    this.companyService.getCoupon(id).subscribe(data => {
+      this.companyService.setCouponModel(data)
+      this.router.navigate(["company/coupon-form"])
+    })
   }
 
 }

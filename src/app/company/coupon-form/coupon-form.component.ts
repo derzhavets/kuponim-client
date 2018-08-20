@@ -17,6 +17,7 @@ export class CouponFormComponent implements OnInit {
   constructor(private companyService: CompanyService, private router: Router) { }
 
   ngOnInit() {
+    this.coupon = this.companyService.getCouponModel()
     this.companyService.getCouponTypes().subscribe(data => {
       this.types = data;
     })

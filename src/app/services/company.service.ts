@@ -1,7 +1,8 @@
+import { Coupon } from './../models/coupon';
+import { Company } from './../models/company';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Coupon } from '../models/coupon';
 
 const baseUrl = "http://localhost:8080/company";
 
@@ -9,6 +10,8 @@ const baseUrl = "http://localhost:8080/company";
   providedIn: 'root'
 })
 export class CompanyService {
+
+  coupon: Coupon = new Coupon()
 
   constructor(private http: HttpClient) { }
 
@@ -42,5 +45,13 @@ export class CompanyService {
 
   getCouponTypes(): Observable<any> {
     return this.http.get("/api/company/get-coupon-types")
+  }
+
+  setCouponModel(c: Coupon) {
+    this.coupon = c
+  }
+
+  getCouponModel() {
+    return this.coupon
   }
 }
