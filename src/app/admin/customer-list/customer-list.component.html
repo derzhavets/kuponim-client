@@ -1,0 +1,28 @@
+<h1>List of companies</h1>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>id</th>
+      <th>name</th>
+      <th>email</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of customers">
+      <td>{{c.id}}</td>
+      <td>{{c.name}}</td>
+      <td>{{c.email}}</td>
+      <td class="text-right">
+        <button (click)="editCustomer(c.id)" type="button" class="btn btn-info" aria-label="Edit">
+          <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+        </button>
+        <button (click)="removeCustomer(c.id)" type="button" class="btn btn-danger" aria-label="Delete">
+          <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<button class="btn btn-primary" (click)="createCustomer()">NEW CUSTOMER</button>

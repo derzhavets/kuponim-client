@@ -1,6 +1,7 @@
 import { catchError } from 'rxjs/operators';
 import { LoginService } from './../services/login.service';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +13,7 @@ export class LoginComponent implements OnInit {
   model: any = {}
   types: Array<string> = ["COMPANY", "CUSTOMER", "ADMIN"]
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService: LoginService, private router: Router) { }
 
   ngOnInit() {
   }
@@ -21,6 +22,19 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.model.email, this.model.password, this.model.type).subscribe(data => {
       console.log("Logged in", data);
       localStorage.setItem("currentUserId", JSON.parse(data).id)
+      localStorage.setItem("currentUserType", JSON.parse(data).type)
+
+      switch(JSON.parse(data).type) {
+        case "COMPANY":
+          this.router.navigate(["company/coupons-list"])
+          break
+        case "CUSTOMER":
+          this.router.navigate(["customer/customer-coupons"])
+          break
+        case "ADMIN":
+          this.router.navigate(["admin/company-list"])
+          break
+      }
     })
   }
 

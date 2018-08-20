@@ -1,0 +1,15 @@
+<form #customerForm="ngForm">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" id="name" [(ngModel)]="customer.name" name="name" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" id="email" [(ngModel)]="customer.email" name="email" required>
+    </div>
+    <div class="form-group">
+      <label for="password">password</label>
+      <input type="text" id="password" [(ngModel)]="customer.password" name="password" required>
+    </div>
+    <button type="submit" class="btn btn-primary" (click)="saveCustomer()">{{customer.id ? 'Update' : 'Create'}}</button>
+  </form>

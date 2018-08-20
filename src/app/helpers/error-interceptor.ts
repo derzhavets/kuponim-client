@@ -26,7 +26,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                         this.router.navigate(["login"]);
                         break;
                     case 500:
-                        console.log("INTERNAL SERVER ERROR");
+                        console.log("INTERNAL SERVER ERROR", err.error.message);
                         break;
                 }
                 return throwError(new Error('ERROR HAS BEEN HANDLED!'));
