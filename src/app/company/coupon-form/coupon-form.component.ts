@@ -27,7 +27,7 @@ export class CouponFormComponent implements OnInit {
         console.log("Coupon successfully updated:", data);
       })
     } else {
-      this.companyService.createCoupon(this.coupon, "7").subscribe(data => {
+      this.companyService.createCoupon(this.coupon, localStorage.getItem("currentUserId")).subscribe(data => {
         console.log("Coupon created successfully:", data);   
       })
     }

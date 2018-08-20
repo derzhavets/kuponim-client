@@ -21,7 +21,7 @@ export class CompanyService {
   }
 
   createCoupon(coupon: Coupon, companyId: string): Observable<any> {
-    return this.http.post(baseUrl + "/create-coupon", coupon, {
+    return this.http.post("/api/company/create-coupon", coupon, {
       params: {
         "company_id": companyId
       }
@@ -29,18 +29,18 @@ export class CompanyService {
   }
 
   updateCoupon(coupon: Coupon): Observable<any> {
-    return this.http.post(baseUrl + "/update-coupon", coupon)
+    return this.http.post("/api/company/update-coupon", coupon)
   }
 
   getCoupon(couponId: string): Observable<any> {
-    return this.http.get(baseUrl + "/get-coupon/" + couponId)
+    return this.http.get("/api/company/get-coupon/" + couponId)
   }
 
   deleteCoupon(couponId: string): Observable<any> {
-    return this.http.get(baseUrl + "/delete-coupon/" + couponId)
+    return this.http.get("/api/company/delete-coupon/" + couponId)
   }
 
   getCouponTypes(): Observable<any> {
-    return this.http.get(baseUrl + "/get-coupon-types")
+    return this.http.get("/api/company/get-coupon-types")
   }
 }

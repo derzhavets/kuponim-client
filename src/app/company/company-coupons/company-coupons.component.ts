@@ -15,9 +15,8 @@ export class CompanyCouponsComponent implements OnInit {
   constructor(private companyService: CompanyService, private router: Router) { }
 
   ngOnInit() {
-    this.companyService.getAllCoupons("1").subscribe(data => {
+    this.companyService.getAllCoupons(localStorage.getItem("currentUserId")).subscribe(data => {
       this.coupons = data;
-      console.log("Received coupons for hardcoded company id=1: ", this.coupons);
     })
   }
 

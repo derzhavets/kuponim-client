@@ -1,0 +1,18 @@
+<form #loginForm="ngForm">
+  <div class="form-group">
+    <label for="title">Email</label>
+    <input type="text" id="email" [(ngModel)]="model.email" name="email" required>
+  </div>
+  <div class="form-group">
+    <label for="title">Password</label>
+    <input type="password" id="password" [(ngModel)]="model.password" name="password" required>
+  </div>
+  <div class="form-group">
+      <label for="type">User type</label>
+      <select name="type" id="type" class="form-control" [(ngModel)]="model.type">
+        <option *ngFor="let type of types">{{type}}</option>
+      </select>
+    </div>
+
+  <button (click)="login()" class="btn btn-primary">Login</button>
+</form>

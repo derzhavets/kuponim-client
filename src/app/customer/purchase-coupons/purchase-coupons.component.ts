@@ -19,7 +19,7 @@ export class PurchaseCouponsComponent implements OnInit {
   }
 
   purchaseCoupon(coupondId: string) {
-    this.customerService.purchaseCoupon("1", coupondId).subscribe(data => {
+    this.customerService.purchaseCoupon(localStorage.getItem("currentUserId"), coupondId).subscribe(data => {
       console.log("Successfully purchased coupon", data)
     })
   }

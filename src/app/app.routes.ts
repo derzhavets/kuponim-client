@@ -1,20 +1,16 @@
-import { TestComponent } from './test/test.component';
-import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 export const AppRoutes = [{
     path: '',
-    redirectTo: 'asd',
+    redirectTo: 'login',
     pathMatch: 'full'
 }, {
-    path: '',
-    component: AppComponent,
-    loadChildren: './company/company.module#CompanyModule'
+    path: 'login',
+    component: LoginComponent
 }, {
-    path: '',
-    component: AppComponent,
+    path: 'customer',
     loadChildren: './customer/customer.module#CustomerModule'
 }, {
-    path: 'test',
-    component: TestComponent
-    
+    path: 'company',
+    loadChildren: './company/company.module#CompanyModule'
 }]
