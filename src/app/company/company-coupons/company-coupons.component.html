@@ -4,7 +4,12 @@
       <img class="card-img-top" [src]="c.imageUrl" alt="c.title">
       <div class="card-body">
         <h5 class="card-title">{{c.title}}</h5>
-        <p class="card-text">{{c.message}}</p>
+        <p class="card-text">Message: {{c.message}}</p>
+        <p class="card-text">price: {{c.price}}</p>
+        <p class="card-text">Amount: {{c.amount}}</p>
+        <p class="card-text">Start date: {{c.startDate}}</p>
+        <p class="card-text">End date: {{c.endDate}}</p>
+        <p class="card-text">Coupon type: {{c.type}}</p>
         <button (click)="updateCoupon(c.id)" class="btn btn-sm btn-primary">Edit</button>
         <button (click)="deleteCoupon(c.id)" class="btn btn-sm btn-danger">Delete</button>
       </div>

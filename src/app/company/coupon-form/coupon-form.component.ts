@@ -26,14 +26,13 @@ export class CouponFormComponent implements OnInit {
   submit() {
     if (this.coupon.id) {
       this.companyService.updateCoupon(this.coupon).subscribe(data => {
-        alert("Coupons successfully updated")
+        alert("Coupon successfully updated")
       })
     } else {
       this.companyService.createCoupon(this.coupon, sessionStorage.getItem("currentUserId")).subscribe(data => {
-        alert("Coupons successfully updated")   
+        alert("Coupon successfully created")   
       })
     }
-    this.router.navigate(["company/company-coupons"])
   }
 
 }
